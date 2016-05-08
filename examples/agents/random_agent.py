@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # You provide the directory to write to (can be an existing
     # directory, but can't contain previous monitor results. You can
     # also dump to a tempdir if you'd like: tempfile.mkdtemp().
-    outdir = '/tmp/random-agent-results'
+    outdir = os.path.join(os.getcwd(), 'random-agent-results')
     env.monitor.start(outdir, force=True)
 
     episode_count = 100
@@ -47,4 +47,4 @@ if __name__ == '__main__':
     # Upload to the scoreboard. We could also do this from another
     # process if we wanted.
     logger.info("Successfully ran RandomAgent. Now trying to upload results to the scoreboard. If it breaks, you can always just try re-uploading the same results.")
-    gym.upload(outdir, algorithm_id='random')
+    gym.upload(outdir, algorithm_id='random', api_key='sk_gUKnBYpVRTmZbfNMFCViw')
